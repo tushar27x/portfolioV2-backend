@@ -14,7 +14,7 @@ func ConnectToDB() *gorm.DB {
 	err := godotenv.Load()
 
 	if err != nil {
-		log.Fatal("❌ Error occured while reading .env file")
+		log.Println("ℹ️  .env file not found — assuming production environment")
 	}
 
 	dsn := os.Getenv("DB_URL")
