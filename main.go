@@ -17,10 +17,16 @@ func main() {
 	if os.Getenv("RUN_MIGRATIONS") == "true" {
 		migrations.Migrate(db)
 	}
-	r := gin.Default()
 
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	r := gin.Default()
 	routes.RegisterAllRoutes(r, db)
 
-	r.Run(":8080")
+	r.Run(":" + port)
+
 	fmt.Println("Started Server")
 }
