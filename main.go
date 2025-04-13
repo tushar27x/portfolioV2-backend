@@ -11,6 +11,7 @@ import (
 )
 
 func main() {
+	config.LoadEnv()
 	db := config.ConnectToDB()
 
 	if os.Getenv("RUN_MIGRATIONS") == "true" {
@@ -18,10 +19,7 @@ func main() {
 	}
 	r := gin.Default()
 
-	routes.RegisterUserRoutes(r, db)
-	routes.RegisterSkillRoutes(r, db)
-	routes.RegisterExperienceRoutes(r, db)
-	routes.RegisterAuthRoutes(r, db)
+	routes.RegisterAllRoutes(r, db)
 
 	r.Run(":8080")
 	fmt.Println("Started Server")
