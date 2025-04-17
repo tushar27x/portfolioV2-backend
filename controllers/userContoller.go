@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"net/http"
-	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/tushar27x/portfolioV2-backend/models"
@@ -10,8 +9,6 @@ import (
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
-
-var jwtSecret = []byte(os.Getenv("JWT_SECRET"))
 
 func RegisterUser(ctx *gin.Context, db *gorm.DB) {
 	var user models.User

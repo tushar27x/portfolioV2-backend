@@ -9,4 +9,5 @@ type User struct {
 	Passwd     string       `gorm:"not null"`
 	Skills     []Skill      `gorm:"foreignKey:UserId"`
 	Experience []Experience `gorm:"foreignKey:UserId"`
+	Project    []Project    `gorm:"foreignKey:UserId"`
 }

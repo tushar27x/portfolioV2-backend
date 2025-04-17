@@ -12,6 +12,7 @@ func Migrate(db *gorm.DB) {
 		&models.User{},
 		&models.Skill{},
 		&models.Experience{},
+		&models.Project{},
 	)
 
 	if err != nil {

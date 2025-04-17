@@ -9,4 +9,5 @@ func RegisterAllRoutes(r *gin.Engine, db *gorm.DB) {
 	RegisterUserRoutes(r, db)
 	RegisterSkillRoutes(r, db)
 	RegisterExperienceRoutes(r, db)
+	RegisterProjectRoutes(r, db)
 }
