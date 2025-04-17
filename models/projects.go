@@ -7,7 +7,7 @@ import (
 
 type Project struct {
 	gorm.Model
-	Title       string         `gorm:"not null"`
+	Title       string         `gorm:"not null;unique"`
 	Stack       pq.StringArray `gorm:"type:text[]"`
 	Description string         `gorm:"not null"`
 	GithubLink  string         `gorm:"not null"`
