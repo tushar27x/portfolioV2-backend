@@ -1,11 +1,18 @@
 package models
 
-import "gorm.io/gorm"
+import (
+	"time"
+
+	"gorm.io/gorm"
+)
 
 type Experience struct {
-	gorm.Model
-	CompanyName string `gorm:"not null"`
-	Designation string `gorm:"not null"`
-	Description string `gorm:"not null"`
-	UserId      uint   `gorm:"not null"`
+	ID          uint           `gorm:"primaryKey" json:"id"`
+	CreatedAt   time.Time      `json:"createdAt"`
+	UpdatedAt   time.Time      `json:"updatedAt"`
+	DeletedAt   gorm.DeletedAt `gorm:"index" json:"deletedAt,omitempty"`
+	CompanyName string         `gorm:"not null" json:"companyName"`
+	Designation string         `gorm:"not null" json:"designation"`
+	Description string         `gorm:"not null" json:"description"`
+	UserId      uint           `gorm:"not null" json:"userId"`
 }
